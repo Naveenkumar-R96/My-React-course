@@ -5,24 +5,47 @@ import React from 'react'
 const Header = () => {
 
 
-  const [number,setNumber]=useState('One')
+  const [items, setItems] = useState([
+    {
+      id: 1,
+      checked: true,
+      item: "practise Coding"
+    },
+    {
+      id: 1,
+      checked: true,
+      item: "Play cricket"
+    },
+    {
+      id: 1,
+      checked: true,
+      item: "Read about ai"
+    }
+  ])
+    
+  
 
-
-  function handleNameChange(){
-    const names=["one","two","three"];
-    const int =Math.floor(Math.random()*3);
-    setNumber( names[int]);
-  }
-
-   return(
+  return (
     <header>
-    <p>Lets {number} should be allowed</p>
-    <button onClick={handleNameChange}>Subscribe</button>
+      <ul>
+       
+        {items.map((item)=>(
+          <li>
+            <input type="checkbox"
+            checked={item.checked} />
+            <label htmlFor=""></label>
+          </li>
+        ))}
+       
+      </ul>
+
+
     </header>
-   )
-  
-  }
-  
+
+  )
+
+}
+
 
 
 export default Header
