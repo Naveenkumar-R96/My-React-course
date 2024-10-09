@@ -3,6 +3,7 @@ import Footer from "./Footer"
 import Body from "./Body";
 import "./App.css"
 import { useState } from 'react'
+import Additem from "./Additem";
 
 
 
@@ -26,6 +27,8 @@ function App(){
     }
   ])
 
+  const [newItem, setNewItem]=useState('')
+
   const handleCheck = (id) => {
     const listItems = items.map((content1) =>
       content1.id === id ? { ...content1, checked: !content1.checked } : content1)
@@ -38,6 +41,11 @@ function App(){
       item.id !== id)
     setItems(listItems)
   }
+
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    console.log("submitted")
+  }
     
 
   return(
@@ -48,7 +56,13 @@ function App(){
      handleCheck={handleCheck}
      handleTrash={handleTrash}
      />
+     <Additem  
+     newItem= {newItem}
+     setNewItem={setNewItem}
+     handleSubmit={handleSubmit}
      
+     
+     />
   
      <Footer  
        length={items.length}
