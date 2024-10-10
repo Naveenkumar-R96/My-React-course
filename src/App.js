@@ -4,30 +4,26 @@ import Body from "./Body";
 import "./App.css"
 import { useState } from 'react'
 import Additem from "./Additem";
+import Search from "./Search"
+
 
 
 
 function App(){
 
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: true,
-      item: "practise Coding"
-    },
-    {
-      id: 2,
-      checked: false,
-      item: "Play cricket"
-    },
-    {
-      id: 3,
-      checked: false,
-      item: "Read about ai"
-    }
-  ])
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('todo_list')))
 
   const [newItem, setNewItem]=useState('')
+
+  const [search,setSearch]=useState('')
+
+  const addItem=(item)=>{
+    const id=items.length ? items[items.length -1].id+1:1;
+    const addNewItem={id,checked:false,item};
+    const listItem =[...items,addNewItem]
+    setItems(listItem)
+    localStorage.setItem("todo_list",JSON.stringify(listItem))
+  }
 
   const handleCheck = (id) => {
     const listItems = items.map((content1) =>
@@ -44,14 +40,16 @@ function App(){
 
   const handleSubmit = (e)=>{
     e.preventDefault()
-    console.log("submitted")
+    console.log(newItem)
+    addItem(newItem)
+    setNewItem('')
   }
     
 
   return(
     <div>
      <Header 
-     items={items}
+     items={items.filter(item=>((item.item).toLowerCase()).includes(search.toLowerCase()))}
        
      handleCheck={handleCheck}
      handleTrash={handleTrash}
@@ -63,7 +61,10 @@ function App(){
      
      
      />
-  
+    <Search
+     search={search}
+     setSearch={setSearch}
+    />
      <Footer  
        length={items.length}
      />
