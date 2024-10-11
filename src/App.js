@@ -2,7 +2,7 @@ import Header from "./Header";
 import Footer from "./Footer"
 import Body from "./Body";
 import "./App.css"
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Additem from "./Additem";
 import Search from "./Search"
 
