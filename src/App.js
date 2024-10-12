@@ -11,11 +11,28 @@ import Search from "./Search"
 
 function App(){
 
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('todo_list')))
+  const API_URL="http://localhost:3500/items"
+
+  const [items, setItems] = useState([])
 
   const [newItem, setNewItem]=useState('')
 
   const [search,setSearch]=useState('')
+
+  useEffect(()=>{
+    const fetchItem = async()=>{
+      try{
+        const response=await fetch(API_URL);
+        console.log(response)
+        const listItem= await response.json();
+        console.log(listItem)
+        setItems(listItem);
+      } catch(err){
+        console.log(err.stack)
+      }
+    }
+    (async ()=> await fetchItem())()
+  },[])
 
   const addItem=(item)=>{
     const id=items.length ? items[items.length -1].id+1:1;
