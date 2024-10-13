@@ -22,7 +22,7 @@ function App() {
 
   const [fetchError, setFetchError] = useState(null)
 
-  const[isLoading,setIsLoading]=useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -36,14 +36,14 @@ function App() {
         setFetchError(null)
       } catch (err) {
         setFetchError(err.message)
-      }finally{
+      } finally {
         setIsLoading(false)
       }
     }
-    setTimeout(()=>{
+    setTimeout(() => {
       (async () => await fetchItem())()
-    },2000)
-   
+    }, 2000)
+
 
   }, [])
 
@@ -53,31 +53,54 @@ function App() {
     const listItem = [...items, addNewItem]
     setItems(listItem)
 
-    const postOptions={
-      method:'POST',
-      header:{
-        'content-Type':'applicaton/json'
+    const postOptions = {
+      method: 'POST',
+      header: {
+        'content-Type': 'applicaton/json'
       },
-      body:JSON.stringify(addNewItem)
+      body: JSON.stringify(addNewItem)
     }
 
-    const result= await apiRequest(API_URL,postOptions);
+    const result = await apiRequest(API_URL, postOptions);
 
-    if(result) setFetchError(result)
+    if (result) setFetchError(result)
 
   }
 
-  const handleCheck = (id) => {
+  const handleCheck = async (id) => {
     const listItems = items.map((content1) =>
       content1.id === id ? { ...content1, checked: !content1.checked } : content1)
     setItems(listItems);
 
+    const myItem = listItems.filter((item) => item.id === id)
+
+    const updateOptions = {
+      method: 'PATCH',
+      header: {
+        'content-Type': 'applicaton/json'
+      },
+      body: JSON.stringify({checked:myItem[0].checked})
+    }
+
+    const reqUrl=`${API_URL}/${id}`
+    const result = await apiRequest(reqUrl, updateOptions);
+
+    if (result) setFetchError(result)
+
   }
-  const handleTrash = (id) => {
+  const handleTrash =  async (id) => {
 
     const listItems = items.filter((item) =>
-      item.id !== id)
+    item.id !== id)
     setItems(listItems)
+    const reqUrl=`${API_URL}/${id}`
+    const deleteOptions={
+      method:'DELETE'
+    }
+    const result = await apiRequest(reqUrl, deleteOptions);
+    if (result) setFetchError(result)
+
+
   }
 
   const handleSubmit = (e) => {
@@ -94,12 +117,11 @@ function App() {
         {isLoading && <p>Loading Items...</p>}
         {fetchError && <p>{`Error: ${fetchError}`}</p>}
         {!isLoading && !fetchError && <Header
-            items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
-
-            handleCheck={handleCheck}
-            handleTrash={handleTrash}
-          />
-        } 
+          items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))}
+          handleCheck={handleCheck}
+          handleTrash={handleTrash}
+        />
+        }
       </main>
       <Additem
         newItem={newItem}
