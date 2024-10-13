@@ -10,7 +10,7 @@ const Header = ({items,handleCheck,handleTrash}) => {
   
   return (
 
-    <header> 
+    <> 
 
       {(items.length ) ? (
        
@@ -51,7 +51,7 @@ const Header = ({items,handleCheck,handleTrash}) => {
 
 
 
-    </header>
+    </>
 
   )
 
