@@ -10,37 +10,55 @@ import { Routes,Route } from "react-router";
 import { Link } from "react-router-dom";
 import Post from "./Post";
 import Postlayout from "./Postlayout";
+import { useState } from "react";
 function App() {
+
+  const [posts,setPosts]=useState([
+    {
+      id:1,
+      title:"first",
+      datetime:'july 2, 2024',
+      body:"made a video about tesla Q1 results"
+    },
+    {
+      id:2,
+      title:"second",
+      datetime:'july 2, 2024',
+      body:"made a video about tesla Q1 results"
+    },
+    {
+      id:3,
+      title:"third",
+      datetime:'july 2, 2024',
+      body:"made a video about tesla Q1 results"
+    },
+    {
+      id:4,
+      title:"four",
+      datetime:'july 2, 2024',
+      body:"made a video about tesla Q1 results"
+    },
+  ])
+
+  const [search,setSearch]=useState('')
+
+  const[searchResults,setSearchResults]=useState([])
+
   return (
    <div>
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-       
-        <li><Link to="/postpage">PostPage</Link></li>
-        
-      </ul>
-    </nav>
-    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/about" element={<About/>}/>
-      <Route path="/newpost" element={<NewPost/>}/>
-      <Route path="/postpage" element={<Postlayout/>}>
-        <Route index element={<PostPage/>}/>
-        <Route path=":id" element={<Post/>}/>
-        <Route path="newpost" element={<NewPost/>}/>
-      </Route>
-      <Route path="*"element={<Missing/>}/>
-    </Routes>
-   {/*  <Header/>
-    <Nav/>
-    <Home/>
+    
+    <Header title="Naveen Social Media"/>
+    <Nav 
+    search={search}
+    setSearch={setSearch}
+    />
+    <Home 
+    posts={posts}/>
     <NewPost/>
     <PostPage/>
     <About/>
     <Missing/>
-    <Footer/> */}
+    <Footer/>
    </div>
   );
 }
