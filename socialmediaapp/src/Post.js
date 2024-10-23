@@ -6,6 +6,7 @@ const Post = () => {
   return (
     <div>
         Post{id}
+        <br />
         <h1>hi</h1>
       
     </div>
