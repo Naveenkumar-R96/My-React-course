@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-const Nav = (search, setSearch) => {
+const Nav = ({search, setSearch}) => {
   return (
     <nav>
       <form action="" className='searchForm' onSubmit={(e)=>e.preventDefault()}>

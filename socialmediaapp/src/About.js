@@ -2,9 +2,12 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div>
-      About
-    </div>
+    <main>
+      <h2>About</h2>
+      <p>hi, iam balachandara together lets make education free for everyone in world
+        
+      </p>
+    </main>
   )
 }
 

@@ -1,12 +1,12 @@
 import React from 'react'
-
-const Feed = () => {
+import Post from './Post'
+const Feed = ({posts}) => {
   return (
-    <div>
+    <>
       {posts.map(post=>(
         <Post key={post.id} post={post}/>
       ))}
-    </div>
+    </>
   )
 }
 
