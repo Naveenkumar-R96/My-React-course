@@ -6,7 +6,7 @@ import NewPost from "./NewPost";
 import PostPage from "./PostPage";
 import Nav from "./Nav";
 import Home from "./Home";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import Post from "./Post";
 import Postlayout from "./Postlayout";
@@ -46,6 +46,7 @@ function App() {
   const [searchResults, setSearchResults] = useState([])
   const [postTitle, setPostTitle] = useState('');
   const [postBody, setPostBody] = useState('');
+  const navigate =useNavigate();
 
   useEffect(() => {
     const filterdResults = posts.filter((post) => ((post.body).toLowerCase()).includes(search.toLowerCase())
@@ -63,7 +64,14 @@ function App() {
     setPosts(allPosts)
     setPostTitle('')
     setPostBody('')
+    navigate('/')
 
+  }
+
+  const handleDelete =(id)=>{
+    const postsList =posts.filter(post => post.id !== id);
+    setPosts(postsList)
+    navigate('/')
   }
 
   return (
@@ -75,19 +83,22 @@ function App() {
         setSearch={setSearch}
       />
       <Routes>
-        <Route path="/" element ={<Home posts = {searchResults}/>}/>
-        <Route path="post" element= {<NewPost
-          handleSubmit={handleSubmit}
-          setPostBody={setPostBody}
-          setPostTitle={setPostTitle}
-          postBody={postBody}
-          postTitle={postTitle}
-        />}/>
-        <Route path = "about" element ={<About/>}/>
-        <Route path ="*" element={<Missing/>}/>
-      
-        
-       
+        <Route path="/" element={<Home posts={searchResults} />} />
+        <Route path="post">
+          <Route index element={<NewPost
+            handleSubmit={handleSubmit}
+            setPostBody={setPostBody}
+            setPostTitle={setPostTitle}
+            postBody={postBody}
+            postTitle={postTitle}
+          />} />
+          <Route path=":id" element={<PostPage posts={posts} handleDelete={handleDelete} />} />
+        </Route>
+        <Route path="about" element={<About />} />
+        <Route path="*" element={<Missing />} />
+
+
+
       </Routes>
       <Footer />
     </div>

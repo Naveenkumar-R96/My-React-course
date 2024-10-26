@@ -1,9 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-const PostPage = () => {
+import { Link, useParams } from 'react-router-dom'
+const PostPage = ({posts, handleDelete}) => {
+  const {id} =useParams();
+  const commingPost =posts.find(post => (post.id).toString()===id);
   return (
    <main>
-    <h1>Post page</h1>
+    {
+      commingPost && 
+      <>
+      <h2>{commingPost.title}</h2>
+      <p>{commingPost.datetime}</p>
+      <p>{commingPost.body}</p>
+      <button onClick={()=>handleDelete(commingPost.id)}>Delete Post</button>
+      </>
+    }
    </main>
   )
 }
