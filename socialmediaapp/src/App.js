@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import { format } from "date-fns"
 import api from "./api/posts"
 import EditPost from "./EditPost";
+import useWindowSize from "./hooks/useWindowSize";
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
   const [editBody, setEditBody] = useState('');
   const [postBody, setPostBody] = useState('');
   const navigate = useNavigate();
+  const {width}=useWindowSize()
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -107,7 +109,7 @@ function App() {
   return (
     <div>
 
-      <Header title="Naveen Social Media" />
+      <Header title="Naveen Social Media" width={width} />
       <Nav
         search={search}
         setSearch={setSearch}
