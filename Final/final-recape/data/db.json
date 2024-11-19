@@ -1,19 +1,9 @@
 {
-    "items":[
-        {
-            "id":1,
-            "checked":false,
-            "item":"visit"
-        },
-        {
-            "id":2,
-            "checked":false,
-            "item":"watch"
-        },
-        {
-            "id":3,
-            "checked":false,
-            "item":"go"
-        }
-    ]
+  "items": [
+    {
+      "id": "",
+      "checked": false,
+      "item": "ji"
+    }
+  ]
 }
