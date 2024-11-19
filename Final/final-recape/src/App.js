@@ -18,21 +18,34 @@ const App = () => {
   
   const[search,setSearch]=useState('')
 
+  const [fetchError,setFetchError]=useState(null)
+
+  const [isLoading,setIsLoading]=useState(true)
+
   useEffect( ()=>{
     
     const fetchItem =async ()=>{
       try{
         const response = await fetch(API_URL)
         console.log(response)
+        if (!response.ok) throw Error ('Data not recieved')
         const listItems = await response.json();
         console.log(listItems)
         setItems(listItems)
+        setFetchError(null)
       }catch(err){
-        
+        setFetchError(err.stack)
+      }finally{
+        setIsLoading(false)
       }
     }
-    (async ()=> await fetchItem())()
+    setTimeout(()=>{
+      (async ()=> await fetchItem())()
+    },2000)
+  
   },[])
+
+
 
   const addItem =(item)=>{
     const id=items.length ? items[items.length -1].id+1 : 1;
@@ -76,12 +89,20 @@ const App = () => {
       search={search}
       setSearch={setSearch}
       />
-      <Content
-        items={items.filter(item=>((item.item).toLowerCase()).includes(search.toLowerCase()))}
-        setItems={setItems}
-        handleCheck={handleCheck}
-        handleDelete={handleDelete} />
-      <Footer length={items.length} />
+      <main>
+        {isLoading && <p>Loading Items..</p>}
+        {
+          fetchError && <p>{`Error ${fetchError}`}</p>
+        }{
+          !isLoading && !fetchError &&  <Content
+          items={items.filter(item=>((item.item).toLowerCase()).includes(search.toLowerCase()))}
+          setItems={setItems}
+          handleCheck={handleCheck}
+          handleDelete={handleDelete} />
+        }
+       
+        <Footer length={items.length} />
+      </main>
 
      
       
