@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UseState from "./Components/UseState";
+import Counter from "./Components/Counter";
 
 const App = () => {
 
@@ -108,6 +109,7 @@ const App = () => {
       </section>
 
       <UseState/>
+      <Counter/>
     </div>
   );
 };
