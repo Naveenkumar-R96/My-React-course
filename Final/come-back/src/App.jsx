@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UseState from "./Components/UseState";
 import Counter from "./Components/Counter";
+import Todolist from "./Components/Todolist";
 
 const App = () => {
 
@@ -110,6 +111,7 @@ const App = () => {
 
       <UseState/>
       <Counter/>
+      <Todolist/>
     </div>
   );
 };

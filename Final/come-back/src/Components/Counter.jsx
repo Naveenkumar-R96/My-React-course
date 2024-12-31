@@ -12,6 +12,12 @@ const Counter = () => {
     <div>
       <p>{count}</p>
       <button onClick={handleIncrease}>+</button>
+
+      
+
+
+
+
     </div>
   )
 }
