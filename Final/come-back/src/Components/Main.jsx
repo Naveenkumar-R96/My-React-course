@@ -5,11 +5,9 @@ const Main = () => {
     return a * b;
   };
 
-  const main=()=>{
-    return <section>
-      
-    </section>
-  }
+  const main = () => {
+    return <section></section>;
+  };
   const numbers = [1, 2, 3, 4, 5];
 
   const userInfor = [
@@ -21,6 +19,11 @@ const Main = () => {
     { username: "naveen", email: "nk946432@gmail.com", location: "usa" },
     { username: "naveen", email: "nk946432@gmail.com", location: "usa" },
   ];
+
+  const handleClick = (e) => {
+    e.preventDefault()
+    console.log(e.target.value)
+  };
 
   return (
     <main>
@@ -35,14 +38,14 @@ const Main = () => {
         ))}
       </p>
       <h1>
-        {
-          userInfor.map((info)=>(
-            <ul>
-              <li>{info.location}</li>
-            </ul>
-          ))
-        }
+        {userInfor.map((info) => (
+          <ul>
+            <li>{info.location}</li>
+          </ul>
+        ))}
       </h1>
+
+    <button onClick={(e)=>handleClick(e)} value={'name'}>nak</button>
     </main>
   );
 };
