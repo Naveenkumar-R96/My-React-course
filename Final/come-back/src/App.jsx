@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import UseState from "./Components/UseState";
 import Counter from "./Components/Counter";
 import Todolist from "./Components/Todolist";
+import Profile from "./Components/Profile";
+import ShoppingList from "./Components/ShoppingList";
 
 const App = () => {
 
@@ -112,6 +114,8 @@ const App = () => {
       <UseState/>
       <Counter/>
       <Todolist/>
+      <Profile/>
+      <ShoppingList/>
     </div>
   );
 };

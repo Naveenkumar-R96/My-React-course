@@ -1,37 +1,36 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Todolist = () => {
-  const [name, setName] = useState([]);
-  const [newTodo, setNewTodo] = useState("");
+  const [item, setItem] = useState("");
 
-  const handleChange = (e) => {
-    setName(e.target.value);
-  };
 
-  const handleSubmit =(e)=>{
-    if(name){
-        e.preventDefault()
-        setNewTodo([...name,newTodo])
-        setName('')
-    }
+  const handleChange=(e)=>{
+      setItem(e.target.value);
+      console.log(e.target.value);
   }
+
+  const handleSubmit=()=>{
+
+  }
+
+
 
   return (
     <div>
-      <h1>Todo List</h1>
-      <form onSubmit={(e)=>handleSubmit(e)}>
+      <form action="" onSubmit={handleSubmit}>
+        <label htmlFor="">Enter :</label>
         <input
           type="text"
-          placeholder="enter your todo"
-          value={name}
-          onChange={(e)=>handleChange(e)}
+          placeholder="enter the list"
+          value={item}
+          onChange={handleChange}
         />
-        <button type="submit">click</button>
+        <button type="submit">Add Todo</button>
+
         <ul>
-          {name.map((n, i) => (
-            <li key={i}>{n}</li>
-          ))}   
+          {item.map((items) => (
+            <li key={Math.random()}>{item}</li>
+          ))}
         </ul>
       </form>
     </div>
