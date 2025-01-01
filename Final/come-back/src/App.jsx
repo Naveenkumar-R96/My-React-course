@@ -4,6 +4,7 @@ import Counter from "./Components/Counter";
 import Todolist from "./Components/Todolist";
 import Profile from "./Components/Profile";
 import ShoppingList from "./Components/ShoppingList";
+import Copyinput from "./Components/Copyinput";
 
 const App = () => {
 
@@ -116,6 +117,7 @@ const App = () => {
       <Todolist/>
       <Profile/>
       <ShoppingList/>
+      <Copyinput/>
     </div>
   );
 };
