@@ -1,3 +1,13 @@
+body{
+    min-height: 200vh;
+    
+}
+.allcontents{
+    background-color: red;
+}
+.allcontents{
+    background-color: red;
+}
 nav{
     display: flex;
     flex-wrap: wrap;
@@ -7,8 +17,15 @@ nav{
     padding: 2rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid rgb(227, 224, 224);
-    max-width: 1100px;
+  
     margin: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    margin-bottom:20rem ;
+    background-color: red;
+    z-index: 10;
+   
     
 }
 .border{
@@ -77,10 +94,17 @@ transition: box-shadow 0.3s ease-in-out;
     gap: 2rem;
     margin-top: 3rem;
     flex-wrap: wrap;
+    background-color: red;
 }
 .options{
     width: 20rem;
 }
 option{
     width: 20rem;
+}
+.dropdowns-container{
+    position: fixed;
+    top:100px;
+    display: flex;
+    width: 100%;
 }
