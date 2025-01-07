@@ -2,12 +2,7 @@ body{
     min-height: 200vh;
     
 }
-.allcontents{
-    background-color: red;
-}
-.allcontents{
-    background-color: red;
-}
+
 nav{
     display: flex;
     flex-wrap: wrap;
@@ -23,7 +18,7 @@ nav{
     top: 0;
     width: 100%;
     margin-bottom:20rem ;
-    background-color: red;
+    background-color: white;
     z-index: 10;
    
     
@@ -92,9 +87,10 @@ transition: box-shadow 0.3s ease-in-out;
     display: flex;
     justify-content: space-evenly;
     gap: 2rem;
-    margin-top: 3rem;
+    padding: 2rem;
     flex-wrap: wrap;
-    background-color: red;
+    background-color: white;
+    z-index: 10;
 }
 .options{
     width: 20rem;
@@ -107,4 +103,5 @@ option{
     top:100px;
     display: flex;
     width: 100%;
+    background-color: white;
 }

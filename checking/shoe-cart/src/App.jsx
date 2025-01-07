@@ -7,7 +7,7 @@ import Product from './Pages/Products/Product'
 import Button from './Components/Button'
 const App = () => {
 
-  const [selectedoption,setSelectedOption]=useState('')
+  const [selectedoption,setSelectedOption]=useState(null)
 
 
   //seatch field
@@ -16,18 +16,31 @@ const App = () => {
     item.title.toLowerCase().indexOf(query.toLowerCase())!==-1
   ))
 
-  function filterdData(commingProducts) {
-    const filteredProducts = commingProducts;
+  function filterdData(commingProducts,selected) {
+    let filteredProducts = commingProducts;
     
-    console.log(filteredProducts);  // Log the filtered products
+      // Log the filtered products
+
+      if(query){
+        filteredProducts=filteredItems;
+      }
     
-    return filteredProducts.map(({ img, title, star, reviews, prevPrice, newPrice }) => {
-      console.log(title);  // Log titles for debugging
+    if(selectedoption){
+      filteredProducts=filteredProducts.filter((item)=>(
+        item.category===selected ||
+        item.color==selected ||
+        item.newPrice==selected ||
+        item.title === selected
+
+      ))
+    }
+    
+    return filteredProducts.map(({ img, title, star, reviews, prevPrice, newPrice,id }) => {
   
       return (
-        <div key={title}>  {/* Ensure a wrapper div or fragment */}
-           {/* Reduced font size */}
+        
           <Card
+          key={id}
             img={img}
             title={title}
             star={star}
@@ -35,7 +48,7 @@ const App = () => {
             newPrice={newPrice}
             prevPrice={prevPrice}
           />
-        </div>
+       
       );
     });
   }
@@ -51,8 +64,8 @@ const App = () => {
 
   return (
     <div>
-      <Navbar selectedoption={selectedoption} setSelectedOption={setSelectedOption}/>
-      <Product filterdData={filterdData(products)}/>
+      <Navbar selectedoption={selectedoption} setSelectedOption={setSelectedOption} query={query} setquery={setquery}/>
+      <Product filterdData={filterdData(products,selectedoption)}/>
     </div>
   )
 }

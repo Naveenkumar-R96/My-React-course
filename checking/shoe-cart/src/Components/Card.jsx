@@ -1,5 +1,6 @@
 import React from "react";
 import "../Pages/Products/Product.css";
+import { NavLink ,Link} from "react-router-dom";
 const Card = ({
   img,
   title,
@@ -36,6 +37,8 @@ const Card = ({
               <del>{prevPrice}</del> {newPrice} only
             </div>
           </div>
+          <Link to='/details'> <button>See more</button></Link>
+         
         </div>
       </div>
     </div>
