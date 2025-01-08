@@ -5,6 +5,7 @@ import Card from './Components/Card'
 import products from './db/data' 
 import Product from './Pages/Products/Product' 
 import Button from './Components/Button'
+import AllRoutes from './Components/AllRoutes.jsx'
 const App = () => {
 
   const [selectedoption,setSelectedOption]=useState(null)
@@ -47,6 +48,7 @@ const App = () => {
             reviews={reviews}
             newPrice={newPrice}
             prevPrice={prevPrice}
+            id={id}
           />
        
       );
@@ -58,14 +60,17 @@ const App = () => {
 
   
 
-
+  const finalItem=filterdData(products,selectedoption,query)
 
 
 
   return (
     <div>
       <Navbar selectedoption={selectedoption} setSelectedOption={setSelectedOption} query={query} setquery={setquery}/>
-      <Product filterdData={filterdData(products,selectedoption)}/>
+    
+     
+      <AllRoutes filterdData={finalItem}/>
+      
     </div>
   )
 }

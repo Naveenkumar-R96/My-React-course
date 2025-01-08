@@ -10,7 +10,7 @@ const Card = ({
   newPrice,
   company,
   color,
-  category,
+  category,id
 }) => {
   const truncateTitle = (title, maxLength) => {
     if (title.length > maxLength) {
@@ -37,7 +37,7 @@ const Card = ({
               <del>{prevPrice}</del> {newPrice} only
             </div>
           </div>
-          <Link to='/details'> <button>See more</button></Link>
+          <Link to={`/details/${id}`} > <button>See more</button></Link>
          
         </div>
       </div>

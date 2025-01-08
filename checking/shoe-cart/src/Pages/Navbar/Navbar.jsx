@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
+import { NavLink, Link } from "react-router-dom";
 const Navbar = ({ selectedoption, setSelectedOption, query, setquery }) => {
   const handleClick = (e) => {
     setSelectedOption(e.target.value);
@@ -21,22 +22,24 @@ const Navbar = ({ selectedoption, setSelectedOption, query, setquery }) => {
           </h1>
         </div>
         <div>
-         
-            <input
-              type="text"
-              placeholder="search"
-              className="search-bar"
-              value={query}
-              onChange={handleChange}
-            />
-            <button type="submit" className="btn">
-              Enter
-            </button>
-          
+          <input
+            type="text"
+            placeholder="search"
+            className="search-bar"
+            value={query}
+            onChange={handleChange}
+          />
+          <button type="submit" className="btn">
+            Enter
+          </button>
         </div>
         <div className="icons">
-          <FiHeart className="icon" />
+          <Link to="/heart">
+            <FiHeart className="icon" />
+          </Link>
+          <NavLink to='/cart'>
           <AiOutlineShoppingCart className="icon" />
+          </NavLink>
           <AiOutlineUserAdd className="icon" />
         </div>
       </nav>

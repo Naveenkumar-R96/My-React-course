@@ -1,9 +1,11 @@
 import React from 'react'
+import { useParams } from 'react-router'
 
-const ShoeDetail = () => {
+const ShoeDetail = ({value}) => {
+  const params =useParams()
   return (
     <div>
-      shoe Detail
+     <h1 style={{fontSize:'50rem'}}>{value}</h1>
     </div>
   )
 }

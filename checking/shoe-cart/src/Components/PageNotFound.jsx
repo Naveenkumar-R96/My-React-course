@@ -2,7 +2,7 @@ import React from 'react'
 
 const PageNotFound = () => {
   return (
-    <div>
+    <div style={{fontSize:'30rem'}}>
       not found
     </div>
   )
