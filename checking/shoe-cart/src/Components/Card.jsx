@@ -37,7 +37,8 @@ const Card = ({
               <del>{prevPrice}</del> {newPrice} only
             </div>
           </div>
-          <Link to={`/details/${id}`} > <button>See more</button></Link>
+          <Link to={`/details/${id}`} > <button className="
+          button glow">Details</button></Link>
          
         </div>
       </div>

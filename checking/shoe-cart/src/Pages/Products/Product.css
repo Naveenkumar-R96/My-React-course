@@ -4,6 +4,8 @@
    position: absolute;
     margin-top: 2rem;
     top: 200px;
+    align-items: center;
+    justify-content: center;
    
      
   }
@@ -14,6 +16,7 @@
     box-shadow: 0 4px  8px rgb(220, 212, 212);
     padding: 24px;
     cursor: pointer;
+    border-radius: 6px;
     
   }
   
@@ -51,4 +54,24 @@
     color: #535353;
   }
    
+  .button{
+  background: transparent;
+  padding: 6px 15px;
+  width: 100%;
+  margin-top: 13px;
+    border: 1.5px solid gray;
+    border-radius: 4px;
+    font-size: 16px;
+    color: grey;
+    letter-spacing: 2px;
+  }
+  
+  .card:hover{
+    box-shadow: 3px 2px 7px rgba(89, 87, 89, 0.5), 0 0 15px rgba(91, 88, 88, 0.5), 0 0 20px rgba(14, 3, 14, 0.5);
+transition: box-shadow 0.3s ease-in-out;
+transform: translateY(-5px);
+transition: 0.5s;
+  }
+
+
   

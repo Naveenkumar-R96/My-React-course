@@ -3,6 +3,9 @@ import "./Navbar.css";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
 import { NavLink, Link } from "react-router-dom";
+import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
+import { GiWingedArrow } from "react-icons/gi";
+import { BsArrowDownUp } from "react-icons/bs";
 const Navbar = ({ selectedoption, setSelectedOption, query, setquery }) => {
   const handleClick = (e) => {
     setSelectedOption(e.target.value);
@@ -37,8 +40,8 @@ const Navbar = ({ selectedoption, setSelectedOption, query, setquery }) => {
           <Link to="/heart">
             <FiHeart className="icon" />
           </Link>
-          <NavLink to='/cart'>
-          <AiOutlineShoppingCart className="icon" />
+          <NavLink to="/cart">
+            <AiOutlineShoppingCart className="icon" />
           </NavLink>
           <AiOutlineUserAdd className="icon" />
         </div>
@@ -46,10 +49,15 @@ const Navbar = ({ selectedoption, setSelectedOption, query, setquery }) => {
 
       <div className="dropdowns-container">
         <div className="drops">
-          <label htmlFor="dropdown1">Filter By Category:</label>
-          <select id="dropdown1" name="dropdown1" onChange={handleClick}>
+          <p>By Category <BsArrowDownUp className="aro"/></p>
+          <select
+            id="dropdown1"
+            name="dropdown1"
+            onChange={handleClick}
+            className="dropss"
+          >
             <option value="" className="options">
-              all
+              Category <BsArrowDownUp className="aro"/>
             </option>
             <option value="sneakers" className="options">
               sneakers
@@ -66,10 +74,15 @@ const Navbar = ({ selectedoption, setSelectedOption, query, setquery }) => {
           </select>
         </div>
         <div className="drops">
-          <label htmlFor="dropdown2">Filter By Color:</label>
-          <select id="dropdown2" name="dropdown2" onChange={handleClick}>
+          <p>By Color <BsArrowDownUp className="aro"/></p>
+          <select
+            id="dropdown2"
+            name="dropdown2"
+            onChange={handleClick}
+            className="dropss"
+          >
             <option value="" className="options">
-              all
+              Color
             </option>
             <option value="black" className="options">
               Black
@@ -89,10 +102,15 @@ const Navbar = ({ selectedoption, setSelectedOption, query, setquery }) => {
           </select>
         </div>
         <div className="drops">
-          <label htmlFor="dropdown3">Choose an option:</label>
-          <select id="dropdown3" name="dropdown3" onChange={handleClick}>
+          <p>By Price <BsArrowDownUp className="aro"/></p>
+          <select
+            id="dropdown3"
+            name="dropdown3"
+            onChange={handleClick}
+            className="dropss"
+          >
             <option value="" className="options">
-              all
+              price
             </option>
             <option value={50} className="options">
               $0-50

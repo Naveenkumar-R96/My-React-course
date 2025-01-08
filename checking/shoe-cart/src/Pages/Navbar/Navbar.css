@@ -6,18 +6,18 @@ body{
 nav{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     ;
     padding: 2rem;
     margin-bottom: 2rem;
-    border-bottom: 1px solid rgb(227, 224, 224);
-  
-    margin: auto;
+    border-bottom: 3px solid rgb(175, 169, 169);
+    
+  width: 100%;
+   margin: auto;
     position: fixed;
     top: 0;
-    width: 100%;
-    margin-bottom:20rem ;
+   
     background-color: white;
     z-index: 10;
    
@@ -30,9 +30,12 @@ nav{
 .icons{
     display: flex;
     gap:2rem;
+    text-decoration: none;
 }
 .icon{
     font-size: 1.5rem;
+    text-decoration: none;
+    color:rgb(87, 94, 91) ;
    
 }
 .search-bar{
@@ -86,22 +89,92 @@ transition: box-shadow 0.3s ease-in-out;
 .dropdowns-container{
     display: flex;
     justify-content: space-evenly;
-    gap: 2rem;
+   
     padding: 2rem;
     flex-wrap: wrap;
-    background-color: white;
     z-index: 10;
+    margin-top: 8px;
+    position: fixed;
+    top:100px;
+    width: 100%;
+    background-color: white;
+    
 }
 .options{
     width: 20rem;
 }
 option{
     width: 20rem;
+    color: rgb(28, 27, 27);
 }
-.dropdowns-container{
-    position: fixed;
-    top:100px;
-    display: flex;
-    width: 100%;
-    background-color: white;
+.options:hover{
+    background-color: black;
 }
+
+
+
+.dropss{
+    padding: 6px 10px;
+    width:100px ;
+    text-align: center;
+    border: 2px solid  rgb(106, 105, 105);
+    outline: none;
+    appearance: none;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin-top: 10px;
+}.dropss:hover{
+    background-color: rgb(237, 236, 236);
+
+}
+.aro{
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+
+/* 
+asdfkjsdkfjskdjfsjfks
+*/
+
+@media screen and (max-width: 780px) {
+   .btn{
+    display: none;
+   }
+   nav .title{
+    
+    
+   }
+  }
+  @media screen and (max-width:700px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 1rem;
+        
+    }
+    nav .title{
+        font-size: 20px;
+        position: sticky;
+    }
+    .dropdowns-container{
+        margin-top: 2.6rem;
+    }
+    .dropss{
+        width: 80px;
+    }
+    .search-bar{
+        width: 180px;
+    }
+    .drops p{
+        display: none;
+    }
+   
+  }
