@@ -92,10 +92,10 @@ transition: box-shadow 0.3s ease-in-out;
    
     padding: 2rem;
     flex-wrap: wrap;
-    z-index: 10;
-    margin-top: 8px;
-    position: fixed;
-    top:100px;
+    z-index:1;
+    margin-top: 7rem;
+    position: sticky;
+
     width: 100%;
     background-color: white;
     
@@ -165,7 +165,7 @@ asdfkjsdkfjskdjfsjfks
         position: sticky;
     }
     .dropdowns-container{
-        margin-top: 2.6rem;
+        margin-top: 8.5rem;
     }
     .dropss{
         width: 80px;
