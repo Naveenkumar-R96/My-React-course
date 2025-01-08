@@ -3,8 +3,7 @@ import "./Navbar.css";
 import { FiHeart } from "react-icons/fi";
 import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
 import { NavLink, Link } from "react-router-dom";
-import { MdOutlineKeyboardDoubleArrowDown } from "react-icons/md";
-import { GiWingedArrow } from "react-icons/gi";
+
 import { BsArrowDownUp } from "react-icons/bs";
 const Navbar = ({ selectedoption, setSelectedOption, query, setquery }) => {
   const handleClick = (e) => {

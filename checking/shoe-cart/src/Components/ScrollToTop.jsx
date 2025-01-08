@@ -7,8 +7,8 @@ import { useLocation } from "react-router-dom";
     } ,[pathname]
   )
 
-  return
-    null;
+  return  null;
+   
 }
 
 export default ScrollTop
