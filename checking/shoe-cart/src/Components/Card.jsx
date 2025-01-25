@@ -1,6 +1,7 @@
 import React from "react";
 import "../Pages/Products/Product.css";
 import { NavLink ,Link} from "react-router-dom";
+import { useState } from "react";
 const Card = ({
   img,
   title,
@@ -10,7 +11,7 @@ const Card = ({
   newPrice,
   company,
   color,
-  category,id
+  category,id,item
 }) => {
   const truncateTitle = (title, maxLength) => {
     if (title.length > maxLength) {
@@ -19,6 +20,9 @@ const Card = ({
     return title;
   };
 
+   const [cutitem, setCutItem] = useState([]);
+
+ 
   return (
     <div>
       <div className="card">
@@ -37,9 +41,9 @@ const Card = ({
               <del>{prevPrice}</del> {newPrice} only
             </div>
           </div>
-          <Link to={`/details/${id}`} > <button className="
-          button glow">Details</button></Link>
-         
+          <Link to={`/details/${id}`} state={{ item }}>
+            <button className="button glow" >Details</button>
+          </Link>
         </div>
       </div>
     </div>

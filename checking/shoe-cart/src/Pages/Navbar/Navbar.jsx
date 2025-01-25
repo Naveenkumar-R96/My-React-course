@@ -20,7 +20,7 @@ const Navbar = ({ selectedoption, setSelectedOption, query, setquery }) => {
       <nav>
         <div>
           <h1 className="title">
-            Shoe<span className="title-1">Cart</span>
+           <Link to={'/'} style={{}}> Shoe<span className="title-1">Cart</span></Link>
           </h1>
         </div>
         <div>

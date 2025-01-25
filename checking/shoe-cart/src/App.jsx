@@ -36,19 +36,20 @@ const App = () => {
       ))
     }
     
-    return filteredProducts.map(({ img, title, star, reviews, prevPrice, newPrice,id }) => {
+    return filteredProducts.map((item) => {
   
       return (
         
           <Card
-          key={id}
-            img={img}
-            title={title}
-            star={star}
-            reviews={reviews}
-            newPrice={newPrice}
-            prevPrice={prevPrice}
-            id={id}
+          key={item.id}
+            img={item.img}
+            title={item.title}
+            star={item.star}
+            reviews={item.reviews}
+            newPrice={item.newPrice}
+            prevPrice={item.prevPrice}
+            id={item.id}
+            item={item}
           />
        
       );

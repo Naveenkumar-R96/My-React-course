@@ -74,4 +74,33 @@ transition: 0.5s;
   }
 
 
-  
+  .details-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  .company{
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 900;
+  }
+  .category{
+    margin-top: 20px;
+    text-align: center;
+  }
+  .addcart{
+    margin-top: 20px;
+    text-align: center;
+    
+  }
+  button{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+  }
+  .cart-container{
+    display: flex;
+    justify-content: space-around;
+  }

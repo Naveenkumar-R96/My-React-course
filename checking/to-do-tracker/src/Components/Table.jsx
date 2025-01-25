@@ -7,9 +7,7 @@ const Table = ({items,setItem,handleEdit}) => {
     setItem(update)
 
   }
-  const handleEdit=(item)=>{
-      e
-  }
+ 
   return (
    <table className='w-full mt-9 border-collapse '>
     <tr>
